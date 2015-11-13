@@ -1,7 +1,7 @@
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+﻿<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php include("dbconnect.php");  ?>
 
-<h2>資料列表</h2>
+<h2>資料列表 2015/11/13</h2>
 
 <?php	
 if($_POST['submit'])	

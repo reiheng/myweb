@@ -1,10 +1,10 @@
 ﻿<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php include("dbconnect.php");  ?>
 
-<h2>資料列表 2015/11/13</h2>
+<h2>資料列表 2015/11/14</h2>
 
 <?php	
-$state = 0;
+$ss = 0;
 if($_POST['submit'])	
 {
 	$id = $_POST['id'];
@@ -26,7 +26,7 @@ if($_POST['submit'])
         }
     }
     if ($file = NULL){
-		$state=1
+		$ss=1
 	}
 	else
 	{
@@ -38,7 +38,7 @@ if($_POST['submit'])
 ?> 
 
 <?php
-if ($state=1){
+if ($ss=1){
 	echo "insert error"
 }
 else {
@@ -62,5 +62,5 @@ else {
 
 <h2><a href="search.php">修改</a></h2>
 <h2><a href="delete.php">刪除</a></h2>
-<h2><a href="index.php">新增</a></h2>
+<h2><a href="insert.php">新增</a></h2>
 </form>

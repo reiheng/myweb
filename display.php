@@ -4,7 +4,7 @@
 <h2>資料列表 2015/11/14</h2>
 
 <?php	
-$ss = 0;
+
 if($_POST['submit'])	
 {
 	$id = $_POST['id'];
@@ -25,23 +25,15 @@ if($_POST['submit'])
             $file = addslashes(fread($instr,filesize($tmpname)));        
         }
     }
-    if ($file = NULL){
-		$ss=1
-	}
-	else
-	{
        //新增圖片到資料庫
                         
 	   pg_query("insert into testtable (id,name,age,memo, img) values ('$id','$name','$age','$memo', '$file')");
-	}
+
 }
 ?> 
 
 <?php
-if ($ss=1){
-	echo "insert error"
-}
-else {
+ {
 	$result = pg_query("select * from testtable ") or
 
 	die (pg_error());

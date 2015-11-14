@@ -11,7 +11,7 @@ $dbpass = "q5IT4g7fOdDfZW58CVqWjRqc49";
 $testtable = pg_connect("host = $dbhost dbname = $dbname user = $dbuser password = $dbpass");
 
 //create table 
-pg_query("CREATE TABLE testtable (id char(50),name char(50),age char(50),memo char(50), img bytea)");
+//pg_query("CREATE TABLE testtable (id char(50),name char(50),age char(50),memo char(50), img bytea)");
 
 ?> 
 

@@ -4,6 +4,7 @@
 <h2>資料列表 2015/11/13</h2>
 
 <?php	
+$state = 0;
 if($_POST['submit'])	
 {
 	$id = $_POST['id'];
@@ -24,33 +25,39 @@ if($_POST['submit'])
             $file = addslashes(fread($instr,filesize($tmpname)));        
         }
     }
-    if ($file == NULL){
-		echo "file error"
+    if ($file = NULL){
+		$state=1
 	}
-    //新增圖片到資料庫
+	else
+	{
+       //新增圖片到資料庫
                         
-	pg_query("insert into testtable (id,name,age,memo, img) values ('$id','$name','$age','$memo', '$file')");
+	   pg_query("insert into testtable (id,name,age,memo, img) values ('$id','$name','$age','$memo', '$file')");
+	}
 }
 ?> 
 
 <?php
-
-$result = pg_query("select * from testtable ") or
-
-die (pg_error());
-$xx = pg_fetch_all($result);
-
-foreach ($xx as $row )
-{
-	echo "<b>ID:</b>". $row['id']
-	."<br><b>Name:</b>". $row['name']
-	."<br><b>Age:</b>". $row['age']
-	."<br><b>Memo:</b>". $row['memo']
-	."<br><b>Image:</b>". $row['img']
-	."<br><br><br>";
+if ($state=1){
+	echo "insert error"
 }
-pg_free_result($result);
+else {
+	$result = pg_query("select * from testtable ") or
 
+	die (pg_error());
+	$xx = pg_fetch_all($result);
+
+	foreach ($xx as $row )
+	{
+		echo "<b>ID:</b>". $row['id']
+		."<br><b>Name:</b>". $row['name']
+		."<br><b>Age:</b>". $row['age']
+		."<br><b>Memo:</b>". $row['memo']
+		."<br><b>Image:</b>". $row['img']
+		."<br><br><br>";
+	}
+	pg_free_result($result);
+}
 ?>
 
 <h2><a href="search.php">修改</a></h2>

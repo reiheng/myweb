@@ -45,7 +45,7 @@ if($_POST['submit'])
 		."<br><b>Name:</b>". $row['name']
 		."<br><b>Age:</b>". $row['age']
 		."<br><b>Memo:</b>". $row['memo']
-		."<br><b>Image:</b>". $row['img']
+	//	."<br><b>Image:</b>". $row['img']
 		."<br><br><br>";
 	}
 	pg_free_result($result);

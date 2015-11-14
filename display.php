@@ -24,7 +24,9 @@ if($_POST['submit'])
             $file = addslashes(fread($instr,filesize($tmpname)));        
         }
     }
-    
+    if ($file == NULL){
+		echo "file error"
+	}
     //新增圖片到資料庫
                         
 	pg_query("insert into testtable (id,name,age,memo, img) values ('$id','$name','$age','$memo', '$file')");
@@ -53,5 +55,5 @@ pg_free_result($result);
 
 <h2><a href="search.php">修改</a></h2>
 <h2><a href="delete.php">刪除</a></h2>
-
+<h2><a href="index.php">新增</a></h2>
 </form>
